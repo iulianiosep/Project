@@ -1,0 +1,13 @@
+{
+    "name": "vendor/debugkit",
+    "description": "Description of project debugkit.",
+    "authors": [
+        {
+            "name": "Iky",
+            "email": "your@email.here"
+        }
+    ],
+    "require": {
+            "cakephp/debug_kit": "2.2.*"
+    }
+}
