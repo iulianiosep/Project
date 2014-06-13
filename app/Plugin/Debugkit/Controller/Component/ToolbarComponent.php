@@ -9,6 +9,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Controller.Component
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -24,9 +25,10 @@ App::uses('CakeEventListener', 'Event');
 /**
  * Class ToolbarComponent
  *
+ * @package       DebugKit.Controller.Component
  * @since         DebugKit 0.1
  */
-class ToolbarComponent  extends Component implements CakeEventListener {
+class ToolbarComponent extends Component implements CakeEventListener {
 
 /**
  * Settings for the Component
@@ -87,7 +89,8 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  * @var array
  */
 	public $javascript = array(
-		'libs' => 'DebugKit./js/js_debug_toolbar'
+		'jquery' => 'DebugKit.jquery',
+		'libs' => 'DebugKit.js_debug_toolbar'
 	);
 
 /**
@@ -95,7 +98,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  *
  * @var array
  */
-	public $css = array('DebugKit./css/debug_toolbar.css');
+	public $css = array('DebugKit.debug_toolbar.css');
 
 /**
  * CacheKey used for the cache file.
@@ -127,7 +130,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  * @param ComponentCollection $collection
  * @param array $settings
  * @return \ToolbarComponent
-*/
+ */
 	public function __construct(ComponentCollection $collection, $settings = array()) {
 		$settings = array_merge((array)Configure::read('DebugKit'), $settings);
 		$panels = $this->_defaultPanels;
@@ -147,7 +150,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
 			return false;
 		}
 		if (
-			$this->settings['autoRun'] === false &&
+			$this->settings['autoRun'] == false &&
 			!isset($this->controller->request->query['debug'])
 		) {
 			$this->enabled = false;
@@ -228,7 +231,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  * If automatically disabled, tell component collection about the state.
  *
  * @param Controller $controller
- * @return boolean
+ * @return bool
  */
 	public function initialize(Controller $controller) {
 		if (!$this->enabled) {
@@ -269,7 +272,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  * Component Startup
  *
  * @param Controller $controller
- * @return boolean
+ * @return bool
  */
 	public function startup(Controller $controller) {
 		$panels = array_keys($this->panels);
@@ -291,7 +294,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  * @param Controller $controller
  * @param $url
  * @param null $status
- * @param boolean $exit
+ * @param bool $exit
  * @return void
  */
 	public function beforeRedirect(Controller $controller, $url, $status = null, $exit = true) {
@@ -365,7 +368,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
 /**
  * Load a toolbar state from cache
  *
- * @param integer $key
+ * @param int $key
  * @return array
  */
 	public function loadState($key) {
@@ -382,18 +385,17 @@ class ToolbarComponent  extends Component implements CakeEventListener {
  * @return void
  */
 	protected function _createCacheConfig() {
-		if (Configure::read('Cache.disable') === true || Cache::config('debug_kit')) {
-			return;
+		if (Configure::read('Cache.disable') !== true) {
+			$cache = array(
+				'duration' => $this->cacheDuration,
+				'engine' => 'File',
+				'path' => CACHE
+			);
+			if (isset($this->settings['cache'])) {
+				$cache = array_merge($cache, $this->settings['cache']);
+			}
+			Cache::config('debug_kit', $cache);
 		}
-		$cache = array(
-		    'duration' => $this->cacheDuration,
-		    'engine' => 'File',
-		    'path' => CACHE
-		);
-		if (isset($this->settings['cache'])) {
-			$cache = array_merge($cache, $this->settings['cache']);
-		}
-		Cache::config('debug_kit', $cache);
 	}
 
 /**
@@ -449,7 +451,7 @@ class ToolbarComponent  extends Component implements CakeEventListener {
 			$panelObj = new $className($settings);
 			if ($panelObj instanceof DebugPanel) {
 				list(, $panel) = pluginSplit($panel);
-				$this->panels[Inflector::underscore($panel)] = $panelObj;
+				$this->panels[strtolower($panel)] = $panelObj;
 			}
 		}
 	}

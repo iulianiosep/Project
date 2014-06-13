@@ -12,6 +12,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Test.Case.Model
  * @since         DebugKit 1.3
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  **/
@@ -21,6 +22,7 @@ App::uses('ToolbarAccess', 'DebugKit.Model');
 /**
  * Test case for ToolbarAccess model
  *
+ * @package       DebugKit.Test.Case.Model
  * @since         DebugKit 1.3
  */
 class ToolbarAccessTestCase extends CakeTestCase {

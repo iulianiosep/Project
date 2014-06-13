@@ -1,5 +1,9 @@
 <?php
 /**
+ * Contains methods for Profiling memory usage.
+ *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -8,6 +12,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Lib
  * @since         DebugKit 2.0
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -15,8 +20,10 @@
 App::uses('Debugger', 'Utility');
 
 /**
- * Contains methods for Profiling memory usage.
+ * Class DebugMemory
  *
+ * @package       DebugKit.Lib
+ * @since         DebugKit 2.0
  */
 class DebugMemory {
 

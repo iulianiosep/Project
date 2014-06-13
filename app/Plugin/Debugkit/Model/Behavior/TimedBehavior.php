@@ -8,6 +8,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Model.Behavior
  * @since         DebugKit 1.3
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -17,6 +18,7 @@ App::uses('DebugKitDebugger', 'DebugKit.Lib');
 /**
  * Class TimedBehavior
  *
+ * @package       DebugKit.Model.Behavior
  * @since         DebugKit 1.3
  */
 class TimedBehavior extends ModelBehavior {
@@ -70,7 +72,7 @@ class TimedBehavior extends ModelBehavior {
  * @param $primary
  * @return boolean true.
  */
-	public function afterFind(Model $Model, $results, $primary = false) {
+	public function afterFind(Model $Model, $results, $primary) {
 		DebugKitDebugger::stopTimer($Model->alias . '_find');
 		return true;
 	}
@@ -94,7 +96,7 @@ class TimedBehavior extends ModelBehavior {
  * @param string $created
  * @return boolean Always true
  */
-	public function afterSave(Model $Model, $created, $options = array()) {
+	public function afterSave(Model $Model, $created) {
 		DebugKitDebugger::stopTimer($Model->alias . '_save');
 		return true;
 	}

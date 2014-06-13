@@ -14,12 +14,10 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.webroot.js
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
-/* jshint jquery: true */
-
 var DEBUGKIT = function () {
 	var undef;
 	return {
@@ -31,54 +29,16 @@ var DEBUGKIT = function () {
 			return this[newmodule];
 		}
 	};
-}();
+}() ;
 
-(function () {
-	function versionGTE(a, b) {
-		var len = Math.min(a.length, b.length);
-		for (var i = 0; i < len; i++) {
-			a[i] = parseInt(a[i], 10);
-			b[i] = parseInt(b[i], 10);
-			if (a[i] > b[i]) {
-				return true;
-			}
-			if (a[i] < b[i]) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	function versionWithin(version, min, max) {
-		version = version.split('.');
-		min = min.split('.');
-		max = max.split('.');
-		return versionGTE(version, min) && versionGTE(max, version);
-	}
-
-	// Look for existing jQuery that matches the requirements.
-	if (window.jQuery && versionWithin(jQuery.fn.jquery, "1.8", "2.1")) {
-		DEBUGKIT.$ = window.jQuery;
-	} else {
-		// sync load the file. Using document.write() does not block
-		// in recent versions of chrome.
-		var req = new XMLHttpRequest();
-		req.onload = function () {
-			eval(this.responseText);
-			// Restore both $ and jQuery to the original values.
-			DEBUGKIT.$ = jQuery.noConflict(true);
-		};
-		req.open('get', window.DEBUGKIT_JQUERY_URL, false);
-		req.send();
-	}
-})();
+DEBUGKIT.$ = jQuery.noConflict(true);
 
 DEBUGKIT.loader = function () {
 	return {
-		// List of methods to run on startup.
+		//list of methods to run on startup.
 		_startup: [],
 
-		// Register a new method to be run on dom ready.
+		//register a new method to be run on dom ready.
 		register: function (method) {
 			this._startup.push(method);
 		},
@@ -97,11 +57,11 @@ DEBUGKIT.sqlLog = function () {
 
 	return {
 		init : function () {
-			var sqlPanel = $('#sql_log-tab');
+			var sqlPanel = $('#sqllog-tab');
 			var buttons = sqlPanel.find('input');
 
 			// Button handling code for explain links.
-			// Performs XHR request to get explain query.
+			// performs XHR request to get explain query.
 			var handleButton = function (event) {
 				event.preventDefault();
 				var form = $(this.form),
@@ -130,16 +90,16 @@ DEBUGKIT.loader.register(DEBUGKIT.sqlLog);
 //
 // NOTE DEBUGKIT.Util.Element is Deprecated.
 //
-// Util module and Element utility class.
+//Util module and Element utility class.
 DEBUGKIT.module('Util');
 DEBUGKIT.Util.Element = {
 
-	// Test if an element is a name node.
+	//test if an element is a name node.
 	nodeName: function (element, name) {
-		return element.nodeName && element.nodeName.toLowerCase() === name.toLowerCase();
+		return element.nodeName && element.nodeName.toLowerCase() == name.toLowerCase();
 	},
 
-	// Return a boolean if the element has the classname
+	//return a boolean if the element has the classname
 	hasClass: function (element, className) {
 		if (!element.className) {
 			return false;
@@ -164,7 +124,7 @@ DEBUGKIT.Util.Element = {
 		if (!element.className) {
 			return false;
 		}
-		element.className = element.className.replace(new RegExp(' ?(' + className + ') ?'), '');
+		element.className = element.className.replace(new RegExp(' ?(' + className +') ?'), '');
 	},
 
 	swapClass: function (element, removeClass, addClass) {
@@ -182,9 +142,9 @@ DEBUGKIT.Util.Element = {
 		element.style.display = 'none';
 	},
 
-	// Go between hide() and show() depending on element.style.display
+	//go between hide() and show() depending on element.style.display
 	toggle: function (element) {
-		if (element.style.display === 'none') {
+		if (element.style.display == 'none') {
 			this.show(element);
 			return;
 		}
@@ -210,16 +170,16 @@ DEBUGKIT.Util.Element = {
 		return this._walk(element, 'previousSibling');
 	},
 
-	// Get or set an element's height, omit value to get, add value (integer) to set.
+	//get or set an element's height, omit value to get, add value (integer) to set.
 	height: function (element, value) {
-		// Get value
+		//get value
 		if (value === undefined) {
 			return parseInt(this.getStyle(element, 'height'), 10);
 		}
 		element.style.height = value + 'px';
 	},
 
-	// Gets the style in css format for property
+	//gets the style in css format for property
 	getStyle: function (element, property) {
 		if (element.currentStyle) {
 			property = property.replace(/-[a-z]/g, function (match) {
@@ -237,12 +197,12 @@ DEBUGKIT.Util.Element = {
 // NOTE DEBUGKIT.Util.Collection is Deprecated.
 //
 DEBUGKIT.Util.Collection = {
-	/**
-	 * Apply the passed function to each item in the collection.
-	 * The current element in the collection will be `this` in the callback
-	 * The callback is also passed the element and the index as arguments.
-	 * Optionally you can supply a binding parameter to change `this` in the callback.
-	 */
+	/*
+	 Apply the passed function to each item in the collection.
+	 The current element in the collection will be `this` in the callback
+	 The callback is also passed the element and the index as arguments.
+	 Optionally you can supply a binding parameter to change `this` in the callback.
+	*/
 	apply: function (collection, callback, binding) {
 		var name, thisVar, i = 0, len = collection.length;
 
@@ -260,10 +220,11 @@ DEBUGKIT.Util.Collection = {
 	}
 };
 
+
 //
 // NOTE DEBUGKIT.Util.Event is Deprecated.
 //
-// Event binding
+//Event binding
 DEBUGKIT.Util.Event = function () {
 	var _listeners = {},
 		_eventId = 0;
@@ -296,8 +257,8 @@ DEBUGKIT.Util.Event = function () {
 	};
 
 	return {
-		// Bind an event listener of type to element, handler is your method.
-		addEvent: function (element, type, handler, capture) {
+		// bind an event listener of type to element, handler is your method.
+		addEvent: function(element, type, handler, capture) {
 			capture = (capture === undefined) ? false : capture;
 
 			var callback = function (event) {
@@ -317,7 +278,7 @@ DEBUGKIT.Util.Event = function () {
 			_listeners[++_eventId] = {element: element, type: type, handler: callback};
 		},
 
-		// Destroy an event listener. requires the exact same function as was used for attaching
+		// destroy an event listener. requires the exact same function as was used for attaching
 		// the event.
 		removeEvent: function (element, type, handler) {
 			if (element.removeEventListener) {
@@ -331,20 +292,18 @@ DEBUGKIT.Util.Event = function () {
 			}
 		},
 
-		// Bind an event to the DOMContentLoaded or other similar event.
-		domready: function (callback) {
+		// bind an event to the DOMContentLoaded or other similar event.
+		domready: function(callback) {
 			if (document.addEventListener) {
-				return document.addEventListener('DOMContentLoaded', callback, false);
+				return document.addEventListener("DOMContentLoaded", callback, false);
 			}
 
 			if (document.all && !window.opera) {
-				// Define a "blank" external JavaScript tag
-				document.write(
-					'<script type="text/javascript" id="__domreadywatcher" defer="defer" src="javascript:void(0)"><\/script>'
-				);
-				var contentloadtag = document.getElementById('__domreadywatcher');
-				contentloadtag.onreadystatechange = function () {
-					if (this.readyState === 'complete') {
+				//Define a "blank" external JavaScript tag
+				document.write('<script type="text/javascript" id="__domreadywatcher" defer="defer" src="javascript:void(0)"><\/script>');
+				var contentloadtag = document.getElementById("__domreadywatcher");
+				contentloadtag.onreadystatechange = function (){
+					if (this.readyState == "complete") {
 						callback();
 					}
 				};
@@ -352,8 +311,8 @@ DEBUGKIT.Util.Event = function () {
 				return;
 			}
 
-			if (/Webkit/i.test(navigator.userAgent)) {
-				var _timer = setInterval(function () {
+			if (/Webkit/i.test(navigator.userAgent)){
+				var _timer = setInterval(function (){
 					if (/loaded|complete/.test(document.readyState)) {
 						clearInterval(_timer);
 						callback();
@@ -362,7 +321,7 @@ DEBUGKIT.Util.Event = function () {
 			}
 		},
 
-		// Unload all the events attached by DebugKit. Fix any memory leaks.
+		// unload all the events attached by DebugKit. Fix any memory leaks.
 		unload: function () {
 			var listener;
 			for (var i in _listeners) {
@@ -377,39 +336,36 @@ DEBUGKIT.Util.Event = function () {
 	};
 }();
 
-// Cookie utility
-DEBUGKIT.Util.Cookie = function () {
+//Cookie utility
+DEBUGKIT.Util.Cookie = function() {
 	var cookieLife = 60;
 
-// Public methods
+//public methods
 	return {
-		/**
-		 * Write to cookie.
-		 *
-		 * @param [string] name Name of cookie to write.
-		 * @param [mixed] value Value to write to cookie.
-		 */
+		/*
+		 Write to cookie
+		 @param [string] name Name of cookie to write.
+		 @param [mixed] value Value to write to cookie.
+		*/
 		write: function (name, value) {
 			var date = new Date();
 			date.setTime(date.getTime() + (cookieLife * 24 * 60 * 60 * 1000));
-			var expires = '; expires=' + date.toGMTString();
-			document.cookie = name + '=' + value + expires + '; path=/';
+			var expires = "; expires=" + date.toGMTString();
+			document.cookie = name + "=" + value + expires + "; path=/";
 			return true;
 		},
 
-		/**
-		 * Read from the cookie.
-		 *
-		 * @param [string] name Name of cookie to read.
-		 */
+		/*
+		 Read from the cookie
+		 @param [string] name Name of cookie to read.
+		*/
 		read: function (name) {
 			name = name + '=';
 			var cookieJar = document.cookie.split(';');
-			var cookieJarLength = cookieJar.length;
-			for (var i = 0; i < cookieJarLength; i++) {
+			for (var i = 0; i < cookieJar.length; i++) {
 				var chips = cookieJar[i];
-				// Trim leading spaces
-				while (chips.charAt(0) === ' ') {
+				//trim leading spaces
+				while (chips.charAt(0) == ' ') {
 					chips = chips.substring(1, chips.length);
 				}
 				if (chips.indexOf(name) === 0) {
@@ -418,52 +374,46 @@ DEBUGKIT.Util.Cookie = function () {
 			}
 			return false;
 		},
-
-		/**
-		 * Delete a cookie by name.
-		 *
-		 * @param [string] name of cookie to delete.
-		 */
+		/*
+		 Delete a cookie by name.
+		 @param [string] name of cookie to delete.
+		*/
 		del: function (name) {
 			var date = new Date();
-			date.setFullYear(2000, 0, 1);
-			var expires = ' ; expires=' + date.toGMTString();
-			document.cookie = name + '=' + expires + '; path=/';
+			date.setFullYear(2000,0,1);
+			var expires = " ; expires=" + date.toGMTString();
+			document.cookie = name + "=" + expires + "; path=/";
 		}
 	};
 }();
 
+
 //
 // NOTE DEBUGKIT.Util.merge is Deprecated.
 //
-
-/**
- * Object merge takes any number of arguments and glues them together.
- *
- * @param [Object] one first object
- * @return object
- */
-DEBUGKIT.Util.merge = function () {
+/*
+ Object merge takes any number of arguments and glues them together
+ @param [Object] one first object
+ @return object
+*/
+DEBUGKIT.Util.merge = function() {
 	var out = {};
-	var argumentsLength = arguments.length;
-	for (var i = 0; i < argumentsLength; i++) {
+	for (var i = 0; i < arguments.length; i++) {
 		var current = arguments[i];
-		for (var prop in current) {
-			if (current[prop] !== undefined) {
+		for (prop in current) {
+			if (current[prop] !== undefined){
 				out[prop] = current[prop];
 			}
 		}
 	}
 	return out;
 };
-
 //
 // NOTE DEBUGKIT.Util.isArray is Deprecated.
 //
-
-/**
- * Check if the given object is an array.
- */
+/*
+ Check if the given object is an array.
+*/
 DEBUGKIT.Util.isArray = function (test) {
 	return Object.prototype.toString.call(test) === '[object Array]';
 };
@@ -492,27 +442,27 @@ DEBUGKIT.Util.Request = function (options) {
 	var ajax = this.createObj();
 	this.transport = ajax;
 
-	// Event assignment
+	//event assignment
 	this.onComplete = this.options.onComplete;
 	this.onRequest = this.options.onRequest;
 	this.onFail = this.options.onFail;
 
 	this.send = function (url, data) {
-		if (this.options.method === 'GET' && data) {
-			url = url + ((url.charAt(url.length - 1) === '?') ? '&' : '?') + data; //check for ? at the end of the string
+		if (this.options.method == 'GET' && data) {
+			url = url + ( (url.charAt(url.length -1) == '?') ? '&' : '?') + data; //check for ? at the end of the string
 			data = null;
 		}
-		// Open connection
+		//open connection
 		this.transport.open(this.options.method, url, this.options.async);
 
-		// Set statechange and pass the active XHR object to it. From here it handles all status changes.
+		//set statechange and pass the active XHR object to it. From here it handles all status changes.
 		this.transport.onreadystatechange = function () {
 			self.onReadyStateChange.apply(self, arguments);
 		};
 		for (var key in this.options.headers) {
 			this.transport.setRequestHeader(key, this.options.headers[key]);
 		}
-		if (typeof data === 'object') {
+		if (typeof data == 'object') {
 			data = this.serialize(data);
 		}
 		if (data) {
@@ -523,23 +473,23 @@ DEBUGKIT.Util.Request = function (options) {
 	};
 };
 
-DEBUGKIT.Util.Request.prototype.onReadyStateChange = function () {
+DEBUGKIT.Util.Request.prototype.onReadyStateChange = function (){
 	if (this.transport.readyState !== 4) {
 		return;
 	}
-	if (this.transport.status === 200 || this.transport.status > 300 && this.transport.status < 400) {
+	if (this.transport.status == 200 || this.transport.status > 300 && this.transport.status < 400 ) {
 		this.response = {
 			xml: this.transport.responseXML,
 			text: this.transport.responseText
 		};
 
-		if (typeof this.onComplete === 'function') {
+		if (typeof this.onComplete == 'function') {
 			this.onComplete.apply(this, [this, this.response]);
 		} else {
 			return this.response;
 		}
 	} else if (this.transport.status > 400) {
-		if (typeof this.onFail === 'function') {
+		if (typeof this.onFail == 'function') {
 			this.onFail.apply(this, []);
 		} else {
 			console.error('Request failed');
@@ -547,21 +497,21 @@ DEBUGKIT.Util.Request.prototype.onReadyStateChange = function () {
 	}
 };
 
-/**
- * Creates cross-broswer XHR object used for requests.
- * Tries using the standard XmlHttpRequest, then IE's wacky ActiveX Objects.
- */
-DEBUGKIT.Util.Request.prototype.createObj = function () {
+/*
+ Creates cross-broswer XHR object used for requests
+ Tries using the standard XmlHttpRequest, then IE's wacky ActiveX Objects
+*/
+DEBUGKIT.Util.Request.prototype.createObj = function(){
 	var request = null;
 	try {
 		request = new XMLHttpRequest();
 	} catch (MS) {
 		try {
-			request = new ActiveXObject('Msxml2.XMLHTTP');
+			request = new ActiveXObject("Msxml2.XMLHTTP");
 		} catch (old_MS) {
 			try {
-				request = new ActiveXObject('Microsoft.XMLHTTP');
-			} catch (failure) {
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch(failure) {
 				request = null;
 			}
 		}
@@ -569,9 +519,9 @@ DEBUGKIT.Util.Request.prototype.createObj = function () {
 	return request;
 };
 
-/**
- * Serializes an object literal into a querystring.
- */
+/*
+ Serializes an object literal into a querystring
+*/
 DEBUGKIT.Util.Request.prototype.serialize = function (data) {
 	var out = '';
 	for (var name in data) {
@@ -583,9 +533,9 @@ DEBUGKIT.Util.Request.prototype.serialize = function (data) {
 };
 
 
-// Basic toolbar module.
+//Basic toolbar module.
 DEBUGKIT.toolbar = function () {
-	// Shortcuts
+	//shortcuts
 	var Cookie = DEBUGKIT.Util.Cookie,
 		$ = DEBUGKIT.$,
 		toolbarHidden = false;
@@ -646,14 +596,14 @@ DEBUGKIT.toolbar = function () {
 			return panel.id;
 		},
 
-		// Find the handle element and make the panel drag resizable.
+		// find the handle element and make the panel drag resizable.
 		makePanelDraggable: function (panel) {
 
-			// Create a variable in the enclosing scope, for scope tricks.
+			//create a variable in the enclosing scope, for scope tricks.
 			var currentElement = null;
 
 			// Use the elements startHeight stored Event.pageY and current Event.pageY to
-			// resize the panel.
+			// resize the panel
 			var mouseMoveHandler = function (event) {
 				event.preventDefault();
 				if (!currentElement) {
@@ -663,8 +613,8 @@ DEBUGKIT.toolbar = function () {
 				currentElement.parent().height(newHeight);
 			};
 
-			// Handle the mouseup event, remove the other listeners so the panel
-			// doesn't continue to resize.
+			// handle the mouseup event, remove the other listeners so the panel
+			// doesn't continue to resize
 			var mouseUpHandler = function (event) {
 				currentElement = null;
 				$(document).off('mousemove', mouseMoveHandler).off('mouseup', mouseUpHandler);
@@ -677,7 +627,7 @@ DEBUGKIT.toolbar = function () {
 				currentElement.data('startY', event.pageY);
 				currentElement.data('startHeight', currentElement.parent().height());
 
-				// Attach to document so mouse doesn't have to stay precisely on the 'handle'.
+				// attach to document so mouse doesn't have to stay precisely on the 'handle'
 				$(document).on('mousemove', mouseMoveHandler)
 					.on('mouseup', mouseUpHandler);
 			};
@@ -685,7 +635,7 @@ DEBUGKIT.toolbar = function () {
 			panel.content.find('.panel-resize-handle').on('mousedown', mouseDownHandler);
 		},
 
-		// Make the maximize button work on the panels.
+		// make the maximize button work on the panels.
 		makePanelMinMax: function (panel) {
 			var _oldHeight;
 
@@ -738,8 +688,8 @@ DEBUGKIT.toolbar = function () {
 					panel.content.css('display', 'block');
 				}
 
-				var contentHeight = panel.content.find('.panel-content-data').height() + 70;
-				if (contentHeight <= (window.innerHeight / 2)) {
+				var contentHeight = panel.content.find(".panel-content-data").height()+70;
+				if (contentHeight <= (window.innerHeight/2)) {
 					panel.content.height(contentHeight);
 				}
 
@@ -843,7 +793,7 @@ DEBUGKIT.historyPanel = function () {
 		});
 	};
 
-	function handleHistoryLink(event) {
+	function handleHistoryLink (event) {
 		event.preventDefault();
 
 		historyLinks.removeClass('active');
@@ -866,7 +816,8 @@ DEBUGKIT.historyPanel = function () {
 
 	return {
 		init : function () {
-			if (toolbar.panels.history === undefined) {
+			if (toolbar.panels['history'] === undefined) {
+				console.error('Bailing on history');
 				return;
 			}
 
@@ -895,7 +846,7 @@ DEBUGKIT.toolbarToggle = function () {
 			});
 
 			var toolbarState = Cookie.read('toolbarDisplay');
-			if (toolbarState !== 'show') {
+			if (toolbarState != 'show') {
 				toolbarHidden = false;
 				this.toggleToolbar();
 			}
@@ -908,13 +859,6 @@ DEBUGKIT.toolbarToggle = function () {
 				Cookie.write('toolbarDisplay', display);
 			});
 			toolbarHidden = !toolbarHidden;
-
-			if (toolbarHidden) {
-				$('#debug-kit-toolbar').addClass('minimized');
-			} else {
-				$('#debug-kit-toolbar').removeClass('minimized');
-			}
-
 			return false;
 		}
 	};

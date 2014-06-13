@@ -9,6 +9,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Test.Case.Lib.Panel
  * @since         DebugKit 2.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -20,6 +21,7 @@ App::uses('Controller', 'Controller');
 /**
  * Class SqlLogPanelTest
  *
+ * @package       DebugKit.Test.Case.Lib.Panel
  * @since         DebugKit 2.1
  */
 class SqlLogPanelTest extends CakeTestCase {

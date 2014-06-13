@@ -1,5 +1,9 @@
 <?php
 /**
+ * Contains methods for Profiling and creating timers.
+ *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -8,6 +12,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Lib
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -15,8 +20,10 @@
 App::uses('Debugger', 'Utility');
 
 /**
- * Contains methods for Profiling and creating timers.
+ * Class DebugTimer
  *
+ * @package       DebugKit.Lib
+ * @since         DebugKit 0.1
  */
 class DebugTimer {
 
@@ -32,7 +39,7 @@ class DebugTimer {
  *
  * @param string $name The name of the timer to start.
  * @param string $message A message for your timer
- * @return boolean Always true
+ * @return bool Always true
  */
 	public static function start($name = null, $message = null) {
 		$start = microtime(true);
@@ -110,7 +117,7 @@ class DebugTimer {
  * Get all timers that have been started and stopped.
  * Calculates elapsed time for each timer. If clear is true, will delete existing timers
  *
- * @param boolean $clear false
+ * @param bool $clear false
  * @return array
  */
 	public static function getAll($clear = false) {
@@ -119,7 +126,7 @@ class DebugTimer {
 
 		$times = array();
 		if (!empty(self::$_timers)) {
-			$firstTimer = reset(self::$_timers);
+			$firstTimer = current(self::$_timers);
 			$_end = $firstTimer['start'];
 		} else {
 			$_end = $now;
@@ -150,7 +157,7 @@ class DebugTimer {
 /**
  * Clear all existing timers
  *
- * @return boolean true
+ * @return bool true
  */
 	public static function clear() {
 		self::$_timers = array();

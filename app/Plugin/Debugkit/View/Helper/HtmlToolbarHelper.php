@@ -8,6 +8,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.View.Helper
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -21,6 +22,8 @@ App::uses('Security', 'Utility');
  * Injects the toolbar elements into HTML layouts.
  * Contains helper methods for
  *
+ *
+ * @package       DebugKit.View.Helper
  * @since         DebugKit 0.1
  */
 class HtmlToolbarHelper extends ToolbarHelper {
@@ -43,16 +46,12 @@ class HtmlToolbarHelper extends ToolbarHelper {
  * Recursively goes through an array and makes neat HTML out of it.
  *
  * @param mixed $values Array to make pretty.
- * @param integer $openDepth Depth to add open class
- * @param integer $currentDepth current depth.
- * @param boolean $doubleEncode
+ * @param int $openDepth Depth to add open class
+ * @param int $currentDepth current depth.
+ * @param bool $doubleEncode
  * @return string
  */
 	public function makeNeatArray($values, $openDepth = 0, $currentDepth = 0, $doubleEncode = false) {
-		static $printedObjects = null;
-		if ($currentDepth === 0) {
-			$printedObjects = new SplObjectStorage();
-		}
 		$className = "neat-array depth-$currentDepth";
 		if ($openDepth > $currentDepth) {
 			$className .= ' expanded';
@@ -63,7 +62,7 @@ class HtmlToolbarHelper extends ToolbarHelper {
 			if (is_bool($values)) {
 				$values = array($values);
 			}
-			if ($values === null) {
+			if (is_null($values)) {
 				$values = array(null);
 			}
 		}
@@ -72,11 +71,6 @@ class HtmlToolbarHelper extends ToolbarHelper {
 		}
 		foreach ($values as $key => $value) {
 			$out .= '<li><strong>' . $key . '</strong>';
-			if (is_array($value) && count($value) > 0) {
-				$out .= '(array)';
-			} elseif (is_object($value)) {
-				$out .= '(object)';
-			}
 			if ($value === null) {
 				$value = '(null)';
 			}
@@ -93,24 +87,7 @@ class HtmlToolbarHelper extends ToolbarHelper {
 				$value = 'function';
 			}
 
-			$isObject = is_object($value);
-			if ($isObject && $printedObjects->contains($value)) {
-				$isObject = false;
-				$value = ' - recursion';
-			}
-
-			if ($isObject) {
-				$printedObjects->attach($value);
-			}
-
-			if (
-				(
-				$value instanceof ArrayAccess ||
-				$value instanceof Iterator ||
-				is_array($value) ||
-				$isObject
-				) && !empty($value)
-			) {
+			if (($value instanceof ArrayAccess || $value instanceof Iterator || is_array($value)) && !empty($value)) {
 				$out .= $this->makeNeatArray($value, $openDepth, $nextDepth, $doubleEncode);
 			} else {
 				$out .= h($value, $doubleEncode);
@@ -176,10 +153,6 @@ class HtmlToolbarHelper extends ToolbarHelper {
 		if (isset($view->viewVars['debugToolbarCss']) && !empty($view->viewVars['debugToolbarCss'])) {
 			$head .= $this->Html->css($view->viewVars['debugToolbarCss']);
 		}
-
-		$js = sprintf('window.DEBUGKIT_JQUERY_URL = "%s";', $this->webroot('/debug_kit/js/jquery.js'));
-		$head .= $this->Html->scriptBlock($js);
-
 		if (isset($view->viewVars['debugToolbarJavascript'])) {
 			foreach ($view->viewVars['debugToolbarJavascript'] as $script) {
 				if ($script) {
@@ -207,8 +180,7 @@ class HtmlToolbarHelper extends ToolbarHelper {
 		if (!preg_match('/^[\s()]*SELECT/i', $sql)) {
 			return '';
 		}
-		$sql = str_replace(array("\n", "\t"), ' ', $sql);
-		$hash = Security::hash($sql . $connection, 'sha1', true);
+		$hash = Security::hash($sql . $connection, null, true);
 		$url = array(
 			'plugin' => 'debug_kit',
 			'controller' => 'toolbar_access',

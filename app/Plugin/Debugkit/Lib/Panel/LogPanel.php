@@ -1,5 +1,9 @@
 <?php
 /**
+ * Log Panel - Reads log entries made this request.
+ *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -8,14 +12,16 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Lib.Panel
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('DebugPanel', 'DebugKit.Lib');
 
 /**
- * Log Panel - Reads log entries made this request.
+ * Class LogPanel
  *
+ * @package       DebugKit.Lib.Panel
  */
 class LogPanel extends DebugPanel {
 

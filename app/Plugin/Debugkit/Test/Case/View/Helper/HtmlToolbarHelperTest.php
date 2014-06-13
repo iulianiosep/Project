@@ -12,9 +12,10 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Test.Case.View.Helper
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+ **/
 
 App::uses('View', 'View');
 App::uses('Controller', 'Controller');
@@ -28,6 +29,7 @@ App::uses('FormHelper', 'View/Helper');
 /**
  * Class HtmlToolbarHelperTestCase
  *
+ * @package       DebugKit.Test.Case.View.Helper
  * @since         DebugKit 0.1
  */
 class HtmlToolbarHelperTestCase extends CakeTestCase {
@@ -56,7 +58,7 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
  * Setup
  *
  * @return void
- */
+ **/
 	public function setUp() {
 		parent::setUp();
 
@@ -79,16 +81,16 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		parent::tearDown();
 		unset($this->Toolbar, $this->Controller);
+		ClassRegistry::flush();
 	}
 
 /**
- * Test makeNeatArray with basic types.
+ * Test Neat Array formatting
  *
  * @return void
- */
-	public function testMakeNeatArrayBasic() {
+ **/
+	public function testMakeNeatArray() {
 		$in = false;
 		$result = $this->Toolbar->makeNeatArray($in);
 		$expected = array(
@@ -124,45 +126,7 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 			'/ul'
 		);
 		$this->assertTags($result, $expected);
-	}
 
-/**
- * Test that cyclic references can be printed.
- *
- * @return void
- */
-	public function testMakeNeatArrayCyclicObjects() {
-		$a = new StdClass;
-		$b = new StdClass;
-		$a->child = $b;
-		$b->parent = $a;
-
-		$in = array('obj' => $a);
-		$result = $this->Toolbar->makeNeatArray($in);
-		$expected = array(
-			array('ul' => array('class' => 'neat-array depth-0')),
-			'<li', '<strong', 'obj', '/strong', '(object)',
-			array('ul' => array('class' => 'neat-array depth-1')),
-			'<li', '<strong', 'child', '/strong', '(object)',
-			array('ul' => array('class' => 'neat-array depth-2')),
-			'<li', '<strong', 'parent', '/strong',
-			'(object) - recursion',
-			'/li',
-			'/ul',
-			'/li',
-			'/ul',
-			'/li',
-			'/ul'
-		);
-		$this->assertTags($result, $expected);
-	}
-
-/**
- * Test Neat Array formatting
- *
- * @return void
- */
-	public function testMakeNeatArray() {
 		$in = array('key' => 'value');
 		$result = $this->Toolbar->makeNeatArray($in);
 		$expected = array(
@@ -203,7 +167,6 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 			'ul' => array('class' => 'neat-array depth-0'),
 			'<li', '<strong', 'key', '/strong', 'value', '/li',
 			'<li', '<strong', 'foo', '/strong',
-				'(array)',
 				array('ul' => array('class' => 'neat-array depth-1')),
 				'<li', '<strong', 'this', '/strong', 'deep', '/li',
 				'<li', '<strong', 'another', '/strong', 'value', '/li',
@@ -229,14 +192,12 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 			'ul' => array('class' => 'neat-array depth-0 expanded'),
 			'<li', '<strong', 'key', '/strong', 'value', '/li',
 			'<li', '<strong', 'foo', '/strong',
-				'(array)',
 				array('ul' => array('class' => 'neat-array depth-1')),
 				'<li', '<strong', 'this', '/strong', 'deep', '/li',
 				'<li', '<strong', 'another', '/strong', 'value', '/li',
 				'/ul',
 			'/li',
 			'<li', '<strong', 'lotr', '/strong',
-				'(array)',
 				array('ul' => array('class' => 'neat-array depth-1')),
 				'<li', '<strong', 'gandalf', '/strong', 'wizard', '/li',
 				'<li', '<strong', 'bilbo', '/strong', 'hobbit', '/li',
@@ -251,14 +212,12 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 			'ul' => array('class' => 'neat-array depth-0 expanded'),
 			'<li', '<strong', 'key', '/strong', 'value', '/li',
 			'<li', '<strong', 'foo', '/strong',
-				'(array)',
 				array('ul' => array('class' => 'neat-array depth-1 expanded')),
 				'<li', '<strong', 'this', '/strong', 'deep', '/li',
 				'<li', '<strong', 'another', '/strong', 'value', '/li',
 				'/ul',
 			'/li',
 			'<li', '<strong', 'lotr', '/strong',
-				'(array)',
 				array('ul' => array('class' => 'neat-array depth-1 expanded')),
 				'<li', '<strong', 'gandalf', '/strong', 'wizard', '/li',
 				'<li', '<strong', 'bilbo', '/strong', 'hobbit', '/li',
@@ -280,36 +239,10 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
 	}
 
 /**
- * Test makeNeatArray with object inputs.
- *
- * @return void
- */
-	public function testMakeNeatArrayObjects() {
-		$in = new StdClass();
-		$in->key = 'value';
-		$in->nested = new StdClass();
-		$in->nested->name = 'mark';
-
-		$result = $this->Toolbar->makeNeatArray($in);
-		$expected = array(
-			array('ul' => array('class' => 'neat-array depth-0')),
-			'<li', '<strong', 'key', '/strong', 'value', '/li',
-			'<li', '<strong', 'nested', '/strong',
-			'(object)',
-			array('ul' => array('class' => 'neat-array depth-1')),
-			'<li', '<strong', 'name', '/strong', 'mark', '/li',
-			'/ul',
-			'/li',
-			'/ul'
-		);
-		$this->assertTags($result, $expected);
-	}
-
-/**
  * Test injection of toolbar
  *
  * @return void
- */
+ **/
 	public function testInjectToolbar() {
 		$this->Controller->viewPath = 'Posts';
 		$request = new CakeRequest('/posts/index');
@@ -336,7 +269,7 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
  * test injection of javascript
  *
  * @return void
- */
+ **/
 	public function testJavascriptInjection() {
 		$this->Controller->viewPath = 'Posts';
 		$this->Controller->uses = null;
@@ -405,7 +338,7 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
  * test starting a panel
  *
  * @return void
- */
+ **/
 	public function testStartPanel() {
 		$result = $this->Toolbar->panelStart('My Panel', 'my_panel');
 		$expected = array(
@@ -420,51 +353,9 @@ class HtmlToolbarHelperTestCase extends CakeTestCase {
  * test ending a panel
  *
  * @return void
- */
+ **/
 	public function testPanelEnd() {
 		$result = $this->Toolbar->panelEnd();
 		$this->assertNull($result);
 	}
-
-/**
- * Test generating links for query explains.
- *
- * @return void
- */
-	public function testExplainLink() {
-		$sql = 'SELECT * FROM tasks';
-		$result = $this->Toolbar->explainLink($sql, 'default');
-		$expected = array(
-			'form' => array('action' => '/debug_kit/toolbar_access/sql_explain', 'method' => 'post',
-				'accept-charset' => 'utf-8', 'id'),
-			array('div' => array('style' => 'display:none;')),
-			array('input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST')),
-			'/div',
-			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][ds]', 'value' => 'default')),
-			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][sql]', 'value' => $sql)),
-			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][hash]', 'value')),
-			array('input' => array('class' => 'sql-explain-link', 'type' => 'submit', 'value' => 'Explain')),
-			'/form',
-		);
-		$this->assertTags($result, $expected);
-
-		$sql = 'SELECT *
-			FROM tasks';
-		$result = $this->Toolbar->explainLink($sql, 'default');
-		$sql = str_replace(array("\n", "\t"), ' ', $sql);
-		$expected = array(
-			'form' => array('action' => '/debug_kit/toolbar_access/sql_explain', 'method' => 'post',
-				'accept-charset' => 'utf-8', 'id'),
-			array('div' => array('style' => 'display:none;')),
-			array('input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST')),
-			'/div',
-			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][ds]', 'value' => 'default')),
-			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][sql]', 'value' => $sql)),
-			array('input' => array('type' => 'hidden', 'id', 'name' => 'data[log][hash]', 'value')),
-			array('input' => array('class' => 'sql-explain-link', 'type' => 'submit', 'value' => 'Explain')),
-			'/form',
-		);
-		$this->assertTags($result, $expected);
-	}
-
 }

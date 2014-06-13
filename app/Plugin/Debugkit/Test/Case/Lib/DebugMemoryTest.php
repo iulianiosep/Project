@@ -12,6 +12,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Test.Case.Lib
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  **/
 
@@ -20,6 +21,7 @@ App::uses('DebugMemory', 'DebugKit.Lib');
 /**
  * Class DebugMemoryTest
  *
+ * @package       DebugKit.Test.Case.Lib
  */
 class DebugMemoryTest extends CakeTestCase {
 

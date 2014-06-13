@@ -12,9 +12,10 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.View.Elements
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+ **/
 
 $this->Number = $this->Helpers->load('Number');
 $this->SimpleGraph = $this->Helpers->load('DebugKit.SimpleGraph');
@@ -94,7 +95,7 @@ foreach ($timers as $timerName => $timeInfo):
 	$i++;
 endforeach;
 
-if (strtolower($this->Toolbar->getName()) === 'firephptoolbar'):
+if (strtolower($this->Toolbar->getName()) == 'firephptoolbar'):
 	for ($i = 0, $len = count($rows); $i < $len; $i++):
 		unset($rows[$i][2]);
 	endfor;

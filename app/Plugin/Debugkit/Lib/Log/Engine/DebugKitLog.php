@@ -1,5 +1,9 @@
 <?php
 /**
+ * A CakeLog listener which saves having to munge files or other configured loggers.
+ *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -8,12 +12,14 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Lib.Log.Engine
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 /**
- * A CakeLog listener which saves having to munge files or other configured loggers.
+ * Class DebugKitLog
  *
+ * @package       DebugKit.Lib.Log.Engine
  */
 class DebugKitLog implements CakeLogInterface {
 
@@ -45,6 +51,6 @@ class DebugKitLog implements CakeLogInterface {
 		if (!isset($this->logs[$type])) {
 			$this->logs[$type] = array();
 		}
-		$this->logs[$type][] = array(date('Y-m-d H:i:s'), (string)$message);
+		$this->logs[$type][] = array(date('Y-m-d H:i:s'), $message);
 	}
 }

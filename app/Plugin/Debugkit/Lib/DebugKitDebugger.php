@@ -1,5 +1,12 @@
 <?php
 /**
+ * DebugKit Debugger class.
+ *
+ * Extends and enhances core debugger.
+ * Adds benchmarking and timing functionality.
+ *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -8,9 +15,10 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Lib
  * @since         DebugKit 0.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
+ **/
 
 App::uses('Debugger', 'Utility');
 App::uses('FireCake', 'DebugKit.Lib');
@@ -24,6 +32,7 @@ App::uses('DebugMemory', 'DebugKit.Lib');
  *
  * This file will not be needed in future version of CakePHP.
  *
+ * @package       DebugKit.Lib
  * @since         DebugKit 0.1
  */
 class DebugKitDebugger extends Debugger {
@@ -71,7 +80,7 @@ class DebugKitDebugger extends Debugger {
  *
  * @param string $name The name of the timer to start.
  * @param string $message A message for your timer
- * @return boolean true
+ * @return bool true
  * @deprecated use DebugTimer::start()
  */
 	public static function startTimer($name = null, $message = null) {
@@ -95,7 +104,7 @@ class DebugKitDebugger extends Debugger {
  * Get all timers that have been started and stopped.
  * Calculates elapsed time for each timer. If clear is true, will delete existing timers
  *
- * @param boolean $clear false
+ * @param bool $clear false
  * @return array
  * @deprecated use DebugTimer::getAll()
  */
@@ -106,7 +115,7 @@ class DebugKitDebugger extends Debugger {
 /**
  * Clear all existing timers
  *
- * @return boolean true
+ * @return bool true
  * @deprecated use DebugTimer::clear()
  */
 	public static function clearTimers() {
@@ -150,7 +159,7 @@ class DebugKitDebugger extends Debugger {
  *
  * @return integer number of bytes ram currently in use. 0 if memory_get_usage() is not available.
  * @deprecated Use DebugMemory::getCurrent() instead.
- */
+ **/
 	public static function getMemoryUse() {
 		return DebugMemory::getCurrent();
 	}
@@ -220,7 +229,6 @@ class DebugKitDebugger extends Debugger {
 		}
 		FireCake::groupEnd();
 	}
-
 }
 
 DebugKitDebugger::getInstance('DebugKitDebugger');

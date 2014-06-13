@@ -1,5 +1,11 @@
 <?php
 /**
+ * Session Panel
+ *
+ * Provides debug information on the Session contents.
+ *
+ * PHP 5
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -8,14 +14,16 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.Lib.Panel
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('DebugPanel', 'DebugKit.Lib');
 
 /**
- * Provides debug information on the Session contents.
+ * Class SessionPanel
  *
+ * @package       DebugKit.Lib.Panel
  */
 class SessionPanel extends DebugPanel {
 

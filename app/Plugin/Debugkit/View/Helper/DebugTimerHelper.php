@@ -8,6 +8,7 @@
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       DebugKit.View.Helper
  * @since         DebugKit 2.1
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
@@ -21,6 +22,7 @@ App::uses('Helper', 'View');
  *
  * Tracks time and memory usage while rendering view.
  *
+ * @package       DebugKit.View.Helper
  */
 class DebugTimerHelper extends Helper {
 
