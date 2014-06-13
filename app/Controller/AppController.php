@@ -39,19 +39,21 @@ class AppController extends Controller {
 	public $components = array(
 		'DebugKit.Toolbar',
 		'Session',
-        'Auth' => array(
-            'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+		'Auth' => array(
+			'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
+			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
 			'authError' => 'You must be logged in to view this page.',
 			'loginError' => 'Invalid Username or Password entered, please try again.'
- 
-        ));
+			
+			));
 	
 	// only allow the login controllers only
 	public function beforeFilter() {
-        $this->Auth->allow('Login');
-   
-    }
+		$this->Auth->allow('Login');
+
+		
+		
+	}
 	
 	public function isAuthorized($user) {
 		// Here is where we should verify the role and give access based on role
