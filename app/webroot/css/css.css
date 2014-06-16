@@ -427,27 +427,27 @@ padding-top: 172px;
 	
 	
 margin-left: 293px;
-top: 0px;
-position: fixed;
-margin-top: 181px;
+top: -254px;
+position: relative;
 
 }
 
 #p3 {
 	
     margin-left: 465px;
-    position: fixed;
-    top: 0px;
-    margin-top: 284px;
+position: relative;
+top: -370px;
+margin-top: 0px;
 }
 
 
 
 #p4 {
 	
-position: fixed;
+position: relative;
 margin-left: 221px;
-margin-top: -117px;
+margin-top: 0px;
+top: -461px;
 }
 
 
@@ -591,4 +591,11 @@ form .error-message {
 	-o-box-shadow: none;
 	box-shadow: none;
 	text-shadow: none;
+}
+
+
+#concepts {
+padding-left:20px;
+margin-top: 20px;
+
 }

@@ -28,13 +28,31 @@
  */
 	//Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/', array('controller' => 'users', 'action' => 'login'));
+	//Router::connect('/', array('controller' => 'posts', 'action' => 'index'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	Router::connect('/dashboard', array('controller' => 'users', 'action' => 'index'));
-	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/login', array('controller' => 'posts', 'action' => 'display'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
+	Router::connect('/rank', array('controller' => 'users', 'action' => 'rank'));
+	Router::connect('/oracle', array('controller' => 'buildings', 'action' => 'oracle'));
+	Router::connect('/ibm', array('controller' => 'buildings', 'action' => 'ibm'));
+	Router::connect('/microsoft', array('controller' => 'buildings', 'action' => 'microsoft'));
+	Router::connect('/google', array('controller' => 'buildings', 'action' => 'google'));
+	Router::connect('/oracle_floor_1', array('controller' => 'buildings', 'action' => 'oracle_floor_1'));
+	Router::connect('/oracle_floor_2', array('controller' => 'buildings', 'action' => 'oracle_floor_2'));
+	Router::connect('/oracle_floor_3', array('controller' => 'buildings', 'action' => 'oracle_floor_3'));
+	Router::connect('/google_floor_1', array('controller' => 'buildings', 'action' => 'google_floor_1'));
+	Router::connect('/google_floor_2', array('controller' => 'buildings', 'action' => 'google_floor_2'));
+	Router::connect('/google_floor_3', array('controller' => 'buildings', 'action' => 'google_floor_3'));
+	Router::connect('/ibm_floor_1', array('controller' => 'buildings', 'action' => 'ibm_floor_1'));
+	Router::connect('/ibm_floor_2', array('controller' => 'buildings', 'action' => 'ibm_floor_2'));
+	Router::connect('/microsoft_floor_1', array('controller' => 'buildings', 'action' => 'microsoft_floor_1'));
+	Router::connect('/microsoft_floor_2', array('controller' => 'buildings', 'action' => 'microsoft_floor_2'));
+	//Router::connect('/my_profile', array('controller' => 'users', 'action' => 'profile'));
+	Router::connect('/admin', array('controller' => 'users', 'action' => 'admin'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

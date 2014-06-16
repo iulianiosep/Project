@@ -82,7 +82,12 @@
 			</div><!-- end side -->
 			
 			<div class="modified-height" style="height: 419px;" id="main">
-				<?php echo $this->fetch('content'); ?> 
+
+			
+					<?php echo $this->fetch('content'); ?>
+				
+				
+				
 			</div><!-- end main -->
 			
 
