@@ -35,6 +35,7 @@ class UsersController extends AppController {
 		} 
 	}
 
+	
 	public function logout() {
 		$this->redirect($this->Auth->logout());
 	}
@@ -170,18 +171,19 @@ public function profile($id = null) {
 		}
 	}
 
+	public function doc() {
 
+
+	}
 
 	public function admin() {
 
 		
 	}
+	public function multiplayer(){
 
-
+		
+	}
 }
-
-
-
-
 
 ?>

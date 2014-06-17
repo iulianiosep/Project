@@ -13,11 +13,11 @@
 	</li>
 
 	<li class="westernUnion">
-		<a href="#" class="modify-height"><span>westernUnion icon</span>Challenge</a>
+		<a href="<?php echo Router::url(array('controller'=>'users', 'action'=>'multiplayer'))?>" class="modify-height"><span>westernUnion icon</span>Challenge</a>
 	</li>
 
 	<li class="investments">
-		<a href="#" class="modify-height"><span>investments icon</span>Documentation</a>
+		<a href="<?php echo Router::url(array('controller'=>'users', 'action'=>'doc'))?>" class="modify-height"><span>investments icon</span>Documentation</a>
 	</li>
 
 	

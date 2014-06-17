@@ -38,7 +38,7 @@
 		<div id="masthead">
 			<div id="logo">
 				
-				<!--    <img src="..img/logo.png" alt="Raiffeisen Bank" height="40" width="150"> -->
+				
 				
 			</div>
 
@@ -64,11 +64,14 @@
 				<?php 
 
 				if($this->Session->check('Auth.User')){
-					echo $this->element('profile');;		
+					echo $this->element('profile');
+					
+
 				}
 				else{
 
 					echo $this->element('login');
+					echo $this->element('register');	
 				}
 				?>
 				

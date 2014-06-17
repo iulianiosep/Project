@@ -37,6 +37,8 @@
 	Router::connect('/login', array('controller' => 'posts', 'action' => 'display'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/rank', array('controller' => 'users', 'action' => 'rank'));
+	Router::connect('/doc', array('controller' => 'users', 'action' => 'doc'));
+	Router::connect('/multiplayer', array('controller' => 'users', 'action' => 'multiplayer'));
 	Router::connect('/oracle', array('controller' => 'buildings', 'action' => 'oracle'));
 	Router::connect('/ibm', array('controller' => 'buildings', 'action' => 'ibm'));
 	Router::connect('/microsoft', array('controller' => 'buildings', 'action' => 'microsoft'));
@@ -53,6 +55,9 @@
 	Router::connect('/microsoft_floor_2', array('controller' => 'buildings', 'action' => 'microsoft_floor_2'));
 	//Router::connect('/my_profile', array('controller' => 'users', 'action' => 'profile'));
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'admin'));
+	Router::connect('/add', array('controller' => 'users', 'action' => 'add'));
+
+
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

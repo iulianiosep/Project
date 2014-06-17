@@ -65,7 +65,7 @@ class BuildingsController extends AppController {
 		
 
 	}
-	public function google__floor_2() {
+	public function google_floor_2() {
 		
 
 	}
@@ -84,6 +84,10 @@ class BuildingsController extends AppController {
 		
 
 	}
+	public function logout() {
+		$this->redirect($this->Auth->logout());
+	}
+
 }
 
 

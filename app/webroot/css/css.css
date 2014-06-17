@@ -553,13 +553,13 @@ input[type=submit] {
 	width: auto;
 }
 form .submit input[type=submit] {
-	background:#62af56;
-	background: -moz-linear-gradient(center top , rgba(14, 104, 182, 1), rgba(65, 121, 255, 1)) repeat scroll 0% 0% rgba(0, 165, 255, 1);
-	border-color: #2d6324;
-	color: #fff;
-	text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
-	padding: 1px 12px;
-	margin-left: 45px;
+	background: #62af56;
+background: -moz-linear-gradient(center top , rgba(14, 104, 182, 1), rgba(65, 121, 255, 1)) repeat scroll 0% 0% rgba(0, 165, 255, 1);
+border-color: #2d6324;
+color: #fff;
+text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0px;
+padding: 1px 12px;
+margin-left: 45px;
 }
 form .submit input[type=submit]:hover {
 	background: #5BA150;
