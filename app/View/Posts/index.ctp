@@ -4,7 +4,7 @@
 <!-- <?php echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add')); ?> -->
 <table>
 <tr>
-<th>Id</th>
+<th></th>
 <th>Title</th>
 <th>Created</th>
 </tr>

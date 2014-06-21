@@ -16,7 +16,7 @@
 </p>
 </center>
 
-<p> </br>&nbsp 1. <b>Intrudoction</b> </p>
+<p> </br>&nbsp 1. <b>Introduction</b> </p>
 <p>
 &nbsp This web application has a logging system that allow to register player to enter on her account where they have all the personal information, the experience that they received at the moment and the point that they can buy many optional things. This game is a strategy quiz game that allow all the player to fight with their intelligent mind and also to prove at their friends that they know many things about web tech-nologies. Wegame present a friendly interface that can attract more players and also this game have a good management of questions and player that can allow they to play more than two player and to know what is the position in rank, because at the end of week we will award the best player with many things like optional good look-ing things on their account or awards like money, cars or many other things in time. This game has client-server web architecture and a database management that makes this application strong and secure because we crypt the right answers and secure all the personal information of the customers. Also this application present an MVC pattern architecture that allow him to organize and monitor all the variables, files and information database automatically. In a fact this web application can makes you more intelligent and you can develop you strategy instinct to become the player on this week. In the next chapter you will find what kind of technologies help us to make and think this intelligent game.
 </p>

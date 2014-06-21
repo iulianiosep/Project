@@ -17,9 +17,10 @@
 	echo $this->Html->css('css');
 
 
-	echo $this->fetch('meta');
-	echo $this->fetch('css');
-	echo $this->fetch('script');
+	print $this->Html->script('quizbuilder-jquery');
+	print $this->Html->script('quizflip');
+	
+	
 
 	?>
 </head>
@@ -64,7 +65,9 @@
 				<?php 
 
 				if($this->Session->check('Auth.User')){
+
 					echo $this->element('profile');
+
 					
 
 				}

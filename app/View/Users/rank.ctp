@@ -2,12 +2,13 @@
 
 <div class="users form">
 <h1>TOP Players</h1>
+
 <table>
     <thead>
 		<tr>
 			<th>Place</th>
-			<th><?php echo $this->Paginator->sort('username', 'Username');?>  </th>
-			<th><?php echo $this->Paginator->sort('score', 'Score');?></th>
+			<th>Username  </th>
+			<th>Score</th>
 
 		</tr>
 	</thead>
@@ -28,11 +29,12 @@
 			</td>
 			<td style="text-align: center;"><?php echo $user['User']['score']; ?></td>
 		
-		</tr>
+	
 		<?php endforeach; ?>
 		<?php unset($user); ?>
 	</tbody>
 </table>
+
 <?php echo $this->Paginator->prev('<< ' . __('previous', true), array(), null, array('class'=>'disabled'));?>
 <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
 <?php echo '&nbsp'; ?>

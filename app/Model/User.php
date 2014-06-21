@@ -62,15 +62,7 @@ class User extends AppModel {
 				'message' => 'Usernames must be between 6 to 60 characters'
 			)
 		),
-        'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('king', 'queen', 'bishop', 'rook', 'knight', 'pawn')),
-                'message' => 'Please enter a valid role',
-                'allowEmpty' => false
-            )
-        ),
-		
-		
+       
 		'password_update' => array(
 			'min_length' => array(
 				'rule' => array('minLength', '6'),   
@@ -190,6 +182,11 @@ class User extends AppModel {
 		// fallback to our parent
 		return parent::beforeSave($options);
 	}
+
+
+
+
+
 
 }
 

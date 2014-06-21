@@ -42,7 +42,7 @@ class AppController extends Controller {
 		'Auth' => array(
 			'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
 			'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-			'authError' => 'You must be logged in to view this page.',
+			'authError' => '<div id="err">You must be logged in to view this page.</div>',
 			'loginError' => 'Invalid Username or Password entered, please try again.'
 			
 			));

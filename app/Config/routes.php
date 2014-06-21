@@ -56,6 +56,21 @@
 	//Router::connect('/my_profile', array('controller' => 'users', 'action' => 'profile'));
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'admin'));
 	Router::connect('/add', array('controller' => 'users', 'action' => 'add'));
+	Router::connect('/quiz_google_1', array('controller'  => 'buildings' , 'action' => 'quiz_google_1'));
+	Router::connect('/quiz_google_2', array('controller'  => 'buildings' , 'action' => 'quiz_google_2'));
+	Router::connect('/quiz_google_3', array('controller'  => 'buildings' , 'action' => 'quiz_google_3'));
+	Router::connect('/quiz_oracle_1', array('controller'  => 'buildings' , 'action' => 'quiz_oracle_1'));
+	Router::connect('/quiz_oracle_2', array('controller'  => 'buildings' , 'action' => 'quiz_oracle_2'));
+	Router::connect('/quiz_oracle_3', array('controller'  => 'buildings' , 'action' => 'quiz_oracle_3'));
+	Router::connect('/quiz_ibm_1', array('controller'  => 'buildings' , 'action' => 'quiz_ibm_1'));
+	Router::connect('/quiz_ibm_2', array('controller'  => 'buildings' , 'action' => 'quiz_ibm_2'));
+	Router::connect('/quiz_microsoft_1', array('controller'  => 'buildings' , 'action' => 'quiz_microsoft_1'));
+	Router::connect('/quiz_microsoft_2', array('controller'  => 'buildings' , 'action' => 'quiz_microsoft_2'));
+	/**
+	 * ...and connect to /admin/pages/index by default.
+	 */
+		
+		//Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));
 
 
 
@@ -70,3 +85,4 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+	Router::parseExtensions('json', 'xml');

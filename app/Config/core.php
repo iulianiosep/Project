@@ -122,6 +122,9 @@
  *
  */
  Configure::write('Routing.prefixes', array('admin'));
+ /* Add the following text to turn on 'admin' routing */
+	Configure::write('Routing.admin', 'admin');
+ 
 
 /**
  * Turn off all caching application-wide.

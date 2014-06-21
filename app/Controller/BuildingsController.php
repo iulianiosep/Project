@@ -1,6 +1,11 @@
 <?php 
 class BuildingsController extends AppController {
 
+  		public $uses=array('Building','User');
+
+	
+
+
 	public function oracle() {
 		
 
@@ -87,6 +92,52 @@ class BuildingsController extends AppController {
 	public function logout() {
 		$this->redirect($this->Auth->logout());
 	}
+
+
+
+
+
+
+	public function quiz_google_1(){
+		
+	}
+	public function quiz_google_2(){
+		
+	}
+	public function quiz_google_3(){
+		
+	}
+
+
+
+	public function quiz_oracle_1(){
+		
+	}
+	public function quiz_oracle_2(){
+		
+	}
+	public function quiz_oracle_3(){
+		
+	}
+
+
+	public function quiz_ibm_1(){
+		
+	}
+	public function quiz_ibm_2(){
+		
+	}
+
+
+
+	public function quiz_microsoft_1(){
+		
+	}
+	public function quiz_microsoft_2(){
+		
+	}
+
+
 
 }
 

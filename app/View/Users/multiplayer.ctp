@@ -9,8 +9,8 @@
 <p> Opponent Username: </p>
 <input type="text" id="Fname" name="Name" placeholder="Opponent name"/> <br>
 <p>Choose build: </p>
-<input list="build" placeholder="Build" name="listinput"/>
-			<datalist id="build">
+<input list="build" placeholder="Build" name="listinput" />
+			<datalist id="build" >
   				<option value="Oracle">
   				<option value="Google">
  				<option value="IBM">
