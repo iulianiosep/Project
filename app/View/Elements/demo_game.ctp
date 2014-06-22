@@ -3,6 +3,6 @@
 
 <a href="http://youtube.com" title="Demo WeGame">
 	
-	<img src="img/demo_ref_dashboard.png" height="139" width="230">
+	<img src="http://localhost/demo_ref_dashboard.png" height="139" width="230">
 	
 </a>

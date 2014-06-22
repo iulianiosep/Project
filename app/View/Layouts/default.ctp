@@ -59,9 +59,24 @@
 				
 
 
-				<?php echo $this->element('menu'); ?>
 				
+				
+				<?php
+				if($this->Session->read('Auth.User.username') == "Administrator"){
 
+				echo $this->element('admin_panel');
+
+
+			
+			}
+
+			else{
+
+
+				 echo $this->element('menu'); 
+
+			}
+				?>
 				<?php 
 
 				if($this->Session->check('Auth.User')){
@@ -78,6 +93,8 @@
 					echo $this->element('register');	
 				}
 				?>
+
+				
 				
 
 
@@ -124,5 +141,8 @@
 
 
 
-
-</body></html>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<?php echo $this->fetch('scriptBottom'); ?>
+	<?php echo $this->element('sql_dump'); ?>
+</body>
+</html>

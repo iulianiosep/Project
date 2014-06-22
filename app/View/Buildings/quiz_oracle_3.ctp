@@ -1,17 +1,5 @@
 
 
-
-
-
-
-
-<!-- TWO STEPS TO INSTALL BASIC JAVASCRIPT QUIZ:
-
-  1.  Copy the coding into the HEAD of your HTML document
-  2.  Add the last code into the BODY of your HTML document  -->
-
-<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
-
 <HEAD>
 
 <style type="text/css">
@@ -21,9 +9,6 @@
 </style>
 
 <script language="JavaScript">
-
-<!-- This script and many more are available free online at -->
-<!-- The JavaScript Source!! http://www.javascriptsource.com -->
 
 <!-- Begin
 // Insert number of questions
@@ -37,9 +22,9 @@ var numChoi = 3;
 var answers = new Array(4);
 
 // Insert answers to questions
-answers[0] = "Cascading Style Sheets";
-answers[1] = "Dynamic HTML";
-answers[2] = "Netscape";
+answers[0] = "Simple Object Access Protocol";
+answers[1] = "to get information with web service";
+answers[2] = "by using some api to get information";
 answers[3] = "Common Gateway Interface";
 
 // Do not change anything below here ...
@@ -90,24 +75,24 @@ function getScore(form) {
 <form name="quiz">
 
 
-<b>1. What does CSS stand for?</b>
+<b>1. What does mean SOAP?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q1" value="Colorful Style Symbols">Colorful Style Symbols</li>
-  <li><input type="radio" name="q1" value="Cascading Style Sheets">Cascading Style Sheets</li>
-  <li><input type="radio" name="q1" value="Computer Style Symbols">Computer Style Symbols</li>
+  <li><input type="radio" name="q1" value="Simple Object Access Protocol">Simple Object Access Protocol</li>
+  <li><input type="radio" name="q1" value="Simple Object Acceptable Protocol">Simple Object Acceptable Protocol</li>
+  <li><input type="radio" name="q1" value="Simple Online Access Protocol">Simple Online Access Protocol</li>
 </ul>
 
-<b>2. What does DHTML stand for?</b>
+<b>2. Where you use SOAP?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q2" value="Dramatic HTML">Dramatic HTML</li>
-  <li><input type="radio" name="q2" value="Design HTML">Design HTML</li>
-  <li><input type="radio" name="q2" value="Dynamic HTML">Dynamic HTML</li>
+  <li><input type="radio" name="q2" value="to get information with web service">to get information with web service</li>
+  <li><input type="radio" name="q2" value="to spend you free time">to spend you free time</li>
+  <li><input type="radio" name="q2" value="to listen music">to listen music</li>
 </ul>
-<b>3. Who created Javascript?</b>
+<b>3. How does Soap wroks?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q3" value="Microsoft">Microsoft</li>
-  <li><input type="radio" name="q3" value="Netscape">Netscape</li>
-  <li><input type="radio" name="q3" value="Sun Micro Systems">Sun Micro Systems</li>
+  <li><input type="radio" name="q3" value="by using some api to get information">by using some api to get information</li>
+  <li><input type="radio" name="q3" value="by your web ports">by your web ports</li>
+  <li><input type="radio" name="q3" value="by your own route">by your own route</li>
 </ul>
 <b>4. What does CGI stand for?</b>
 <ul style="margin-top: 1pt">
@@ -125,7 +110,7 @@ Correct answers:<br>
 
 <input type="button" value="Get Score" onClick="getScore(this.form)">
 <input type="reset" value="Clear answers">
-<p> Score = <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
+<p> Score: <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
 Total Win Points:<br>
 <input type="text" value="" name="Points" onClick="getScore(this.form)">
 </p>

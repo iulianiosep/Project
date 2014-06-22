@@ -1,17 +1,4 @@
 
-
-
-
-
-
-
-<!-- TWO STEPS TO INSTALL BASIC JAVASCRIPT QUIZ:
-
-  1.  Copy the coding into the HEAD of your HTML document
-  2.  Add the last code into the BODY of your HTML document  -->
-
-<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
-
 <HEAD>
 
 <style type="text/css">
@@ -22,24 +9,23 @@
 
 <script language="JavaScript">
 
-<!-- This script and many more are available free online at -->
-<!-- The JavaScript Source!! http://www.javascriptsource.com -->
-
 <!-- Begin
 // Insert number of questions
-var numQues = 4;
+var puncte = 0;
+var numQues = 5;
 
 // Insert number of choices in each question
 var numChoi = 3;
 
 // Insert number of questions displayed in answer area
-var answers = new Array(4);
+var answers = new Array(5);
 
 // Insert answers to questions
-answers[0] = "Cascading Style Sheets";
-answers[1] = "Dynamic HTML";
-answers[2] = "Netscape";
-answers[3] = "Common Gateway Interface";
+answers[0] = "Javascript is a dynamic,</br> function based scripting language.";
+answers[1] = "Asynchronous JavaScript and XML.";
+answers[2] = "Atlas";
+answers[3] = "ASP.NET AJAX.";
+answers[4] = "in mixt-side.";
 
 // Do not change anything below here ...
 function getScore(form) {
@@ -60,14 +46,24 @@ function getScore(form) {
   }
   score = Math.round(score/numQues*100);
   form.percentage.value = score + "%";
+  puncte = score * 10;
   var correctAnswers = "";
   for (i=1; i<=numQues; i++) {
     correctAnswers += i + ". " + answers[i-1] + "\r\n";
+    
   }
+
   form.solutions.value = correctAnswers;
+  form.Points.value = puncte;
+
+
+ 
+
 }
 //  End -->
 </script>
+
+
 
 </HEAD>
 
@@ -79,51 +75,68 @@ function getScore(form) {
 <form name="quiz">
 
 
-<b>1. What does CSS stand for?</b>
+<b>1. What is Javascript?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q1" value="Colorful Style Symbols">Colorful Style Symbols</li>
-  <li><input type="radio" name="q1" value="Cascading Style Sheets">Cascading Style Sheets</li>
-  <li><input type="radio" name="q1" value="Computer Style Symbols">Computer Style Symbols</li>
+  <li><input type="radio" name="q1" value="Javascript is a dynamic,</br> function based scripting language.">Javascript is a dynamic,</br> function based scripting language.</li>
+  <li><input type="radio" name="q1" value="avascript is a machine.">Javascript is a machine.</li>
+  <li><input type="radio" name="q1" value="Javascript is a coockie."> Javascript is a coockie.</li>
+  <li><input type="radio" name="q1" value="Javascript is a toy."> Javascript is a toy.</li>
 </ul>
 
-<b>2. What does DHTML stand for?</b>
+<b>2. What combination of technologies</br> gives AJAX its name?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q2" value="Dramatic HTML">Dramatic HTML</li>
-  <li><input type="radio" name="q2" value="Design HTML">Design HTML</li>
-  <li><input type="radio" name="q2" value="Dynamic HTML">Dynamic HTML</li>
+  <li><input type="radio" name="q2" value="ASP and XAML.">ASP and XAML.</li>
+  <li><input type="radio" name="q2" value="Asynchronous JavaScript and XML.">Asynchronous JavaScript and XML.</li>
+  <li><input type="radio" name="q2" value="Autonomic Computing and DHTML.">Autonomic Computing and DHTML.</li>
+  <li><input type="radio" name="q2" value="Atlas and XML."> Atlas and XML.</li>
 </ul>
-<b>3. Who created Javascript?</b>
+<b>3. Which one of these legendary Greek</br> mythical figures or places is the code name</br> for Microsoft's version of AJAX ?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q3" value="Microsoft">Microsoft</li>
-  <li><input type="radio" name="q3" value="Netscape">Netscape</li>
-  <li><input type="radio" name="q3" value="Sun Micro Systems">Sun Micro Systems</li>
+  <li><input type="radio" name="q3" value="Oracle.">Oracle.</li>
+  <li><input type="radio" name="q3" value="Atlas">Atlas</li>
+  <li><input type="radio" name="q3" value="Hercules">Hercules</li>
+  <li><input type="radio" name="q3" value="Delphi">Delphi</li>
 </ul>
-<b>4. What does CGI stand for?</b>
+<b>4. Where is the control in AJAX?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q4" value="Cascading Gate Interaction">Cascading Gate Interaction</li>
-  <li><input type="radio" name="q4" value="Common GIF Interface">Common GIF Interface</li>
-  <li><input type="radio" name="q4" value="Common Gateway Interface">Common Gateway Interface</li>
+  <li><input type="radio" name="q4" value="in client-side">in client-side</li>
+  <li><input type="radio" name="q4" value="you are not in control with AJAX.">you are not in control with AJAX.</li>
+  <li><input type="radio" name="q4" value="in server-side.">in server-side.</li>
+  <li><input type="radio" name="q4" value="in mixt-side.">in mixt-side.</li>
 </ul>
+<b>5. What has Microsoft renamed its free Web client framework?</b>
+<ul style="margin-top: 1pt">
+  <li><input type="radio" name="q5" value="MSN AJAX.">MSN AJAX.</li>
+  <li><input type="radio" name="q5" value="Live ASP">Live ASP</li>
+  <li><input type="radio" name="q5" value="ASP.NET AJAX.">ASP.NET AJAX.</li>
+  <li><input type="radio" name="q5" value=".NET Designer">.NET Designer</li>
+</ul>
+
 
 
 <div id="correct_ans">
 
 Correct answers:<br>
 <textarea class="bgclr" name="solutions" wrap="virtual" rows="4" cols="30" disabled></textarea>
-<input type="button" value="Get score" onClick="getScore(this.form)">
-<input type="reset" value="Clear answers">
-<p> Score = <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
 
+
+<input type="button" value="Get Score" onClick="getScore(this.form)">
+<input type="reset" value="Clear answers">
+<p> Score: <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
+Total Win Points:<br>
+<input type="text" value="" name="Points" onClick="getScore(this.form)">
 </p>
 </div>
 
 
 
-<?
+
 
 
 </form>
 
 
-
 </div>
+
+
+

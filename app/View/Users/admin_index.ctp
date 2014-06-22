@@ -1,5 +1,5 @@
 <div class="users form">
-<h1>TOP</h1>
+<h1>Users List</h1>
 <table>
     <thead>
 		<tr>
@@ -48,12 +48,10 @@
 <?php echo $this->Paginator->numbers(array(   'class' => 'numbers'     ));?>
 <?php echo $this->Paginator->next(__('next', true) . ' >>', array(), null, array('class' => 'disabled'));?>
 </div>				
-<?php echo $this->Html->link( "Add A New User.",   array('action'=>'add'),array('escape' => false) ); ?>
-<br/>
-<?php 
-echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
-?>
 
+
+
+<a href="http://localhost/WeGame/dashboard">Return to front page!</a>
 
 
 

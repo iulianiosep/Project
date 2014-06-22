@@ -1,5 +1,5 @@
 
-<div style="width:700px;height:553px;line-height:3em;overflow:scroll;">
+<div style="width:690px;height:543px;line-height:3em;overflow:scroll;">
 
 
 
@@ -59,6 +59,13 @@ The local loopback mechanism is useful for testing software during development i
 The name is also a reserved top-level domain name (cf. .localhost), set aside to avoid confusion with the narrower definition as a hostname. The IETF standards restrict domain name registrars to assign the name in their normal registration proce-dures, such as for second-level domains, e.g., localhost.com.</br>
 On most computer systems, localhost resolves to the address 127.0.0.1, which is the most-commonly used IPv4 loopback address, and to the IPv6 loopback ad-dress ::1. </br>
 </p>
+<p> </br>&nbsp 2.4 <b>Adobe Photoshop - web graphic editor</b> </p>
+<p>
+	<img border="0" src="img/photoshop.jpg" height="100" width="100"></br>
+&nbspAdobe Photoshop is a raster graphics editor developed and published by Adobe Systems for Windows and OS X.</br></br>
+
+Photoshop was created in 1988 by Thomas and John Knoll. Since then, it has become the de facto industry standard in raster graphics editing, such that the terms "photoshopping" and "photoshop contest" are born. It can edit and compose raster images in multiple layers and supports masks, alpha compositing and several color models including RGB, CMYK, Lab color space (with capital L), spot color and duotone. Photoshop has vast support for graphic file formats but also uses its own PSD and PSB file formats which support all the aforementioned features. In addition to raster graphics, it has limited abilities to edit or render text, vector graphics (especially through clipping path), 3D graphics and video. Photoshop's featureset can be expanded by Photoshop plug-ins, programs developed and distributed independently of Photoshop that can run inside it and offer new or enhanced features.
+	</p>
 
 <p> </br>&nbsp 3. <b>Web application architecture</b> </p>
 <p> </br>&nbsp 3.1 <b>MVC – architecture pattern</b> </p>
@@ -69,6 +76,16 @@ On most computer systems, localhost resolves to the address 127.0.0.1, which is 
 </p>
 <p> </br>&nbsp 4. <b>Implementation details</b> </p>
 </br></br>
+<center><b>Login page</b></center>
+<img border="0" src="img/login.png" height="512px" width="678px">
+<center><b>First page</b></center>
+<img border="0" src="img/index.png" height="512px" width="678px">
+<center><b>Floor page</b></center>
+<img border="0" src="img/floor.png" height="512px" width="678px">
+<center><b>Information page</b></center>
+<img border="0" src="img/information.png" height="512px" width="678px">
+<center><b>Quiz page</b></center>
+<img border="0" src="img/quiz.png" height="512px" width="678px">
 
 <p> </br>&nbsp 5. <b>Basic Rules of the WeGame</b> </p>
 <p>

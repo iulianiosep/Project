@@ -28,6 +28,12 @@
 	<li class="client">
 		<a href="<?php echo Router::url(array('controller'=>'contacts', 'action'=>'index'))?>"><span class="Home"></span>Contact</a>
 	</li>	
+
+	<li class="client">
+		<a href="<?php echo Router::url(array('controller'=>'users', 'action'=>'admin'))?>"><span class="Home"></span>Admin Panel</a>
+	</li>	
+
+
 	
 	
 	

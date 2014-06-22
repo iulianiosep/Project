@@ -7,6 +7,10 @@ class PostsController extends AppController {
 		$this->set('posts', $this->Post->find('all'));
 	}
 
+
+	public function admin_index() {
+		$this->set('posts', $this->Post->find('all'));
+	}
 	public function view($id) {
 		if (!$id) {
 			throw new NotFoundException(__('Invalid post'));
@@ -20,6 +24,17 @@ class PostsController extends AppController {
 	}
 
 	public function add() {
+		if ($this->request->is('post')) {
+			$this->Post->create();
+			if ($this->Post->save($this->request->data)) {
+				$this->Session->setFlash(__('Your post has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			}
+			$this->Session->setFlash(__('Unable to add your post.'));
+		}
+	}
+
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Post->create();
 			if ($this->Post->save($this->request->data)) {
@@ -60,6 +75,32 @@ class PostsController extends AppController {
 }
 
 
+public function admin_edit($id = null) {
+    if (!$id) {
+        throw new NotFoundException(__('Invalid post'));
+    }
+
+    $post = $this->Post->findById($id);
+    if (!$post) {
+        throw new NotFoundException(__('Invalid post'));
+    }
+
+    if ($this->request->is(array('post', 'put'))) {
+        $this->Post->id = $id;
+        if ($this->Post->save($this->request->data)) {
+            $this->Session->setFlash(__('Your post has been updated.'));
+            return $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('Unable to update your post.'));
+    }
+
+    if (!$this->request->data) {
+        $this->request->data = $post;
+    }
+}
+
+
+
 
 
 
@@ -67,6 +108,20 @@ class PostsController extends AppController {
 
 
 public function delete($id) {
+    if ($this->request->is('get')) {
+        throw new MethodNotAllowedException();
+    }
+
+    if ($this->Post->delete($id)) {
+        $this->Session->setFlash(
+            __('The post with id: %s has been deleted.', h($id))
+        );
+        return $this->redirect(array('action' => 'index'));
+    }
+}
+
+
+public function admin_delete($id) {
     if ($this->request->is('get')) {
         throw new MethodNotAllowedException();
     }

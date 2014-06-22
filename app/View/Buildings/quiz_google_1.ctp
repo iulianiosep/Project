@@ -1,17 +1,5 @@
 
 
-
-
-
-
-
-<!-- TWO STEPS TO INSTALL BASIC JAVASCRIPT QUIZ:
-
-  1.  Copy the coding into the HEAD of your HTML document
-  2.  Add the last code into the BODY of your HTML document  -->
-
-<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
-
 <HEAD>
 
 <style type="text/css">
@@ -22,11 +10,11 @@
 
 <script language="JavaScript">
 
-<!-- This script and many more are available free online at -->
-<!-- The JavaScript Source!! http://www.javascriptsource.com -->
+
 
 <!-- Begin
 // Insert number of questions
+var puncte = 0;
 var numQues = 4;
 
 // Insert number of choices in each question
@@ -36,8 +24,8 @@ var numChoi = 3;
 var answers = new Array(4);
 
 // Insert answers to questions
-answers[0] = "Cascading Style Sheets";
-answers[1] = "Dynamic HTML";
+answers[0] = "take info from different source";
+answers[1] = "Mash-up";
 answers[2] = "Netscape";
 answers[3] = "Common Gateway Interface";
 
@@ -60,22 +48,24 @@ function getScore(form) {
   }
   score = Math.round(score/numQues*100);
   form.percentage.value = score + "%";
-
+  puncte = score * 10;
   var correctAnswers = "";
   for (i=1; i<=numQues; i++) {
     correctAnswers += i + ". " + answers[i-1] + "\r\n";
+    
   }
+
   form.solutions.value = correctAnswers;
+  form.Points.value = puncte;
 
 
-
+ 
 
 }
-
-
-
 //  End -->
 </script>
+
+
 
 </HEAD>
 
@@ -87,16 +77,16 @@ function getScore(form) {
 <form name="quiz">
 
 
-<b>1. What does CSS stand for?</b>
+<b>1. What does MASH-up do?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q1" value="Colorful Style Symbols">Colorful Style Symbols</li>
+  <li><input type="radio" name="q1" value="take info from different source">take info from different source</li>
   <li><input type="radio" name="q1" value="Cascading Style Sheets">Cascading Style Sheets</li>
   <li><input type="radio" name="q1" value="Computer Style Symbols">Computer Style Symbols</li>
 </ul>
 
-<b>2. What does DHTML stand for?</b>
+<b>2. We use ______ to collect info?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q2" value="Dramatic HTML">Dramatic HTML</li>
+  <li><input type="radio" name="q2" value="Mash-up">Mash-up</li>
   <li><input type="radio" name="q2" value="Design HTML">Design HTML</li>
   <li><input type="radio" name="q2" value="Dynamic HTML">Dynamic HTML</li>
 </ul>
@@ -118,32 +108,15 @@ function getScore(form) {
 
 Correct answers:<br>
 <textarea class="bgclr" name="solutions" wrap="virtual" rows="4" cols="30" disabled></textarea>
-<input id="asd" type="button" value="Get score" onClick="getScore(this.form)">
-<input type="reset" value="Clear answers">
-<p> Score = <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
 
+
+<input type="button" value="Get Score" onClick="getScore(this.form)">
+<input type="reset" value="Clear answers">
+<p> Score: <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
+Total Win Points:<br>
+<input type="text" value="" name="Points" onClick="getScore(this.form)">
 </p>
 </div>
-
-
-
-
-
-<?php 
-
- $session_id = $this->Session->read('Auth.User.id');
- $variable = $_GET['score'];
- echo $session_id;
- echo $variable;
-
-
-
-?>
-
-
-
-
-
 
 
 
@@ -153,5 +126,7 @@ Correct answers:<br>
 </form>
 
 
-
 </div>
+
+
+

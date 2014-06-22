@@ -66,6 +66,7 @@
 	Router::connect('/quiz_ibm_2', array('controller'  => 'buildings' , 'action' => 'quiz_ibm_2'));
 	Router::connect('/quiz_microsoft_1', array('controller'  => 'buildings' , 'action' => 'quiz_microsoft_1'));
 	Router::connect('/quiz_microsoft_2', array('controller'  => 'buildings' , 'action' => 'quiz_microsoft_2'));
+	
 	/**
 	 * ...and connect to /admin/pages/index by default.
 	 */

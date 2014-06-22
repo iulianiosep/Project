@@ -1,17 +1,5 @@
 
 
-
-
-
-
-
-<!-- TWO STEPS TO INSTALL BASIC JAVASCRIPT QUIZ:
-
-  1.  Copy the coding into the HEAD of your HTML document
-  2.  Add the last code into the BODY of your HTML document  -->
-
-<!-- STEP ONE: Paste this code into the HEAD of your HTML document  -->
-
 <HEAD>
 
 <style type="text/css">
@@ -22,11 +10,10 @@
 
 <script language="JavaScript">
 
-<!-- This script and many more are available free online at -->
-<!-- The JavaScript Source!! http://www.javascriptsource.com -->
 
 <!-- Begin
 // Insert number of questions
+var puncte = 0;
 var numQues = 4;
 
 // Insert number of choices in each question
@@ -36,10 +23,10 @@ var numChoi = 3;
 var answers = new Array(4);
 
 // Insert answers to questions
-answers[0] = "Cascading Style Sheets";
-answers[1] = "Dynamic HTML";
-answers[2] = "Netscape";
-answers[3] = "Common Gateway Interface";
+answers[0] = "is the emerging standards body for Web application security";
+answers[1] = "when you are attacked and the app is functional";
+answers[2] = "instlaing a antivirus";
+answers[3] = "finding issue in your app";
 
 // Do not change anything below here ...
 function getScore(form) {
@@ -60,49 +47,59 @@ function getScore(form) {
   }
   score = Math.round(score/numQues*100);
   form.percentage.value = score + "%";
+  puncte = score * 10;
   var correctAnswers = "";
   for (i=1; i<=numQues; i++) {
     correctAnswers += i + ". " + answers[i-1] + "\r\n";
+    
   }
+
   form.solutions.value = correctAnswers;
+  form.Points.value = puncte;
+
+
+ 
+
 }
 //  End -->
 </script>
+
+
 
 </HEAD>
 
 
 <BODY>
 
-<center><h1>Microsoft| Floor 1</h1></center>
+<center><h1>Microsoft | Floor 1</h1></center>
 <div id="concepts" style="width:676px;height:498px;;line-height:3em;overflow:scroll;">
 <form name="quiz">
 
 
-<b>1. What does CSS stand for?</b>
+<b>1. What is OWASP?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q1" value="Colorful Style Symbols">Colorful Style Symbols</li>
-  <li><input type="radio" name="q1" value="Cascading Style Sheets">Cascading Style Sheets</li>
-  <li><input type="radio" name="q1" value="Computer Style Symbols">Computer Style Symbols</li>
+  <li><input type="radio" name="q1" value="is the emerging standards body for Web application security">is the emerging standards body for</br> Web application security</li>
+  <li><input type="radio" name="q1" value="is a cryptosystem">is a cryptosystem</li>
+  <li><input type="radio" name="q1" value="is a perfect-secret">is a perfect-secret</li>
 </ul>
 
-<b>2. What does DHTML stand for?</b>
+<b>2. When you are sure that you</br> have a sure application?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q2" value="Dramatic HTML">Dramatic HTML</li>
-  <li><input type="radio" name="q2" value="Design HTML">Design HTML</li>
-  <li><input type="radio" name="q2" value="Dynamic HTML">Dynamic HTML</li>
+  <li><input type="radio" name="q2" value="when you play">when you play</li>
+  <li><input type="radio" name="q2" value="when you read something">when you read something</li>
+  <li><input type="radio" name="q2" value="when you are attacked and the app is functional">when you are attacked and the app</br> is functional</li>
 </ul>
-<b>3. Who created Javascript?</b>
+<b>3. How you secure your internet?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q3" value="Microsoft">Microsoft</li>
-  <li><input type="radio" name="q3" value="Netscape">Netscape</li>
-  <li><input type="radio" name="q3" value="Sun Micro Systems">Sun Micro Systems</li>
+  <li><input type="radio" name="q3" value="installing a web plugin">instaling a web plugin</li>
+  <li><input type="radio" name="q3" value="instlaing a antivirus">instlaing a antivirus</li>
+  <li><input type="radio" name="q3" value="cheking your firewall">checking your firewall</li>
 </ul>
-<b>4. What does CGI stand for?</b>
+<b>4. What does a "Adversar" to attack your app?</b>
 <ul style="margin-top: 1pt">
-  <li><input type="radio" name="q4" value="Cascading Gate Interaction">Cascading Gate Interaction</li>
-  <li><input type="radio" name="q4" value="Common GIF Interface">Common GIF Interface</li>
-  <li><input type="radio" name="q4" value="Common Gateway Interface">Common Gateway Interface</li>
+  <li><input type="radio" name="q4" value="finding issue in your app">finding issue in your app</li>
+  <li><input type="radio" name="q4" value="checking your browser">checking your browser</li>
+  <li><input type="radio" name="q4" value="playing with yoru app">playing with your app</li>
 </ul>
 
 
@@ -110,10 +107,13 @@ function getScore(form) {
 
 Correct answers:<br>
 <textarea class="bgclr" name="solutions" wrap="virtual" rows="4" cols="30" disabled></textarea>
-<input type="button" value="Get score" onClick="getScore(this.form)">
-<input type="reset" value="Clear answers">
-<p> Score = <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
 
+
+<input type="button" value="Get Score" onClick="getScore(this.form)">
+<input type="reset" value="Clear answers">
+<p> Score: <strong><input class="bgclr" type="text" size="5" name="percentage" disabled></strong><br><br>
+Total Win Points:<br>
+<input type="text" value="" name="Points" onClick="getScore(this.form)">
 </p>
 </div>
 
@@ -125,5 +125,7 @@ Correct answers:<br>
 </form>
 
 
-
 </div>
+
+
+
