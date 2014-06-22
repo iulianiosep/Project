@@ -19,7 +19,8 @@ In computer science, a session identifier, <b>session ID</b> or session token is
 
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_ibm_1'))?>'">Go Test</button>
 </div>
+
 
 	</div>

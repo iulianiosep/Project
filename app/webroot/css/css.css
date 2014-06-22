@@ -22,12 +22,38 @@ body		{
 	min-width: 980px;
 }
 
-button, input, textarea, select, option, .ui-widget								{ 
+input, textarea, select, option, .ui-widget								{ 
 	color: #ffffff;
 	font: 12px Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background-color:#2a4277;
 }
 
+button {
+
+	width: 100px;
+	height: 39px;
+	color: #FFF;
+	margin-top: -27px;
+	background-color: #2A4277;
+	margin-top: -27px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+button:hover {
+
+	width: 100px;
+	height: 39px;
+	color: #FFF;
+	background-color: #213577;
+	margin-top: -27px;
+	margin-top: -27px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
 table {
 border-right:0;
 clear: both;

@@ -11,7 +11,7 @@ A <b>mashup</b>, in web development, is a web page, or web application, that use
 
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_google_1'))?>'">Go Test</button>
 </div>
 
 

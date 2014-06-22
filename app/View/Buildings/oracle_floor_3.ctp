@@ -14,7 +14,7 @@ As an example of how SOAP procedures can be used, a SOAP message could be sent t
 <a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/presentations/web10ServiciiWeb-SOA-SOAP-WSDL-UDDI.pdf"> More information </a>
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_oracle_3'))?>'">Go Test</button>
 </div>
 
 

@@ -20,9 +20,8 @@
 <a href="http://www.w3schools.com/js/DEFAULT.asp" > More information about Javascript </a></br>
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_microsoft_2'))?>'">Go Test</button>
 </div>
-
 
 
 </div>

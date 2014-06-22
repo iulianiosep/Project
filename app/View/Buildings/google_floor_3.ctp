@@ -19,7 +19,8 @@ Google created their Native Client architecture which is designed to help replac
 
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_google_3'))?>'">Go Test</button>
 </div>
+
 
 	</div>

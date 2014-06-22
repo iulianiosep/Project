@@ -2,6 +2,8 @@
 
 class UsersController extends AppController {
 
+	// public $components=array('Search');
+
 	public $paginate = array(
 		'limit' => 25,
 		'conditions' => array('status' => '1'),
@@ -12,6 +14,8 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('login','add'); 
 		 $this->Auth->allow('profile');
+
+		
 
 		 
 
@@ -51,6 +55,7 @@ class UsersController extends AppController {
 			);
 		$users = $this->paginate('User');
 		$this->set(compact('users'));
+
 	}
 
 
@@ -253,6 +258,10 @@ public function profile($id = null) {
 
 		
 	}
+
+
+
+	
 }
 
 ?>

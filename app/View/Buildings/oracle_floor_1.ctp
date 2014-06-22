@@ -13,8 +13,9 @@ Ajax is not a single technology, but a group of technologies. HTML and CSS can b
 
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_oracle_1'))?>'">Go Test</button>
 </div>
+
 
 
 

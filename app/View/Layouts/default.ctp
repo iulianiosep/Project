@@ -28,7 +28,7 @@
 
 <body>
 	<div id="header">
-
+	
 
 	</div>
 
@@ -67,6 +67,7 @@
 				if($this->Session->check('Auth.User')){
 
 					echo $this->element('profile');
+				
 
 					
 

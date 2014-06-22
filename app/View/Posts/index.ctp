@@ -19,4 +19,12 @@
 </tr>
 <?php endforeach; ?>
 
+
+<?php 
+    echo $form->create("Post",array('action' => 'search'));
+    echo $form->input("q", array('label' => 'Search for'));
+    echo $form->end("Search");
+?> 
+
 </table>
+

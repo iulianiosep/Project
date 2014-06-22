@@ -15,7 +15,7 @@ For commercial use, several paid editions are available, and offer additional fu
 <a href="http://dev.mysql.com/doc/refman/5.6/en/index.html">More information </a>
 
 <div align="center">
-<?php echo $this->Form->end(__('Go Test')); ?>
+<button onclick="window.location.href='<?php echo Router::url(array('controller'=>'buildings', 'action'=>'quiz_oracle_2'))?>'">Go Test</button>
 </div>
 
 

@@ -2,6 +2,7 @@
 App::uses('AuthComponent', 'Controller/Component');
 
 class User extends AppModel {
+
 	
 	public $avatarUploadDir = 'img/avatars';
     
