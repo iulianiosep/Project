@@ -1,0 +1,101 @@
+ul { list-style-type:none;}
+.hidden { display:none;}
+.show {display: block;}
+.clear {clear:both;}
+
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(51, 51, 51);
+}
+
+.container{
+      width: 40%;
+      min-height: 250px;
+      margin:20px auto 5px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgb(227, 227, 227);
+      -webkit-box-shadow: 0 0px 2px 1px #ccc;
+              box-shadow: 0 0px 2px 1px #ccc;
+      -webkit-perspective: 800px;
+              perspective: 800px;
+    }
+#controls { width: 40%; overflow: hidden; margin:20px auto 5px;}
+#flashCard {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: -webkit-transform 0.8s;
+          transition: transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: right center;
+          transform-origin: right center;
+}
+
+#flashCard.flipped {
+  -webkit-transform: translateX( -100% ) rotateY( -180deg );
+          transform: translateX( -100% ) rotateY( -180deg );
+}
+
+#flashCard div{
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: rgb(51, 51, 51);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6em;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+
+#flashCard .front {
+  background-color:rgb(255, 255, 255);
+}
+
+#flashCard .back {
+  background-color:rgb(245, 245, 245);
+  -webkit-transform: rotateY( 180deg );
+          transform: rotateY( 180deg );
+}
+
+.cardTitle {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 5px 0;
+  color: rgb(255, 255, 255);
+  background-color: rgb(66, 139, 202);
+  text-shadow: 0px -1px 0px rgb(48, 113, 169);
+  background-image: linear-gradient(to bottom, rgb(66, 139, 202) 0px, rgb(50, 120, 179) 100%);
+  font-size: 1em;
+  font-weight: 500;
+}
+
+button {
+  background-color: rgb(66, 139, 202);
+  border: 1px solid rgb(40, 94, 142);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 8px;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(50, 118, 177);
+}
+button:active {
+  background-color: rgb(45, 108, 162);
+  border: 1px solid rgb(43, 102, 154);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.125) inset;
+}
+
+button#next {float: right;}
+button#flip {float: left;}

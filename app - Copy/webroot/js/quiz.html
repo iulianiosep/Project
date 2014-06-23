@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8"/>
+<meta name="publisher" />
+<meta name="author" />
+<link rel="stylesheet" type="text/css" href="quizstyle.css" />	
+<title>Quiz Game</title>
+<script type="text/javascript">
+// set minutes
+var mins = 1;
+ 
+// calculate the seconds (don't change this! unless time progresses at a different speed for you...)
+var secs = mins * 60;
+function countdown() {
+	setTimeout('Decrement()',1000);
+}
+function Decrement() {
+	if (document.getElementById) {
+		minutes = document.getElementById("minutes");
+		seconds = document.getElementById("seconds");
+		// if less than a minute remaining
+		if (seconds < 59) {
+			seconds.value = secs;
+		} else {
+			minutes.value = getminutes();
+			seconds.value = getseconds();
+		}
+		secs--;
+		setTimeout('Decrement()',1000);
+		if(mins == 0 && secs == 0){
+  		alert("Your time has finished ! Please pay atention and try to finish the quiz !");
+  		mins=1;
+  		secs=mins * 60;
+  		return;
+
+
+  }
+	}
+}
+function getminutes() {
+	// minutes is seconds divided by 60, rounded down
+	mins = Math.floor(secs / 60);
+	return mins;
+}
+function getseconds() {
+	// take mins remaining (as seconds) away from total seconds remaining
+	return secs-Math.round(mins *60);
+}
+  
+
+</script>
+</head>
+<body>
+<h1 class="hidden">Good luck!</h1>
+<div class="container">
+<section id="flashCard">
+	<div id="questions" class="front">
+		<p>Front</p>
+	</div>
+	<div id="answers" class="back">
+		<p>Back</p>
+	</div>
+</section>
+</div>
+<section id="controls">
+	<button id="answer">Answers</button>
+	<button id="next">Next</button>
+	<button id="finish">Submit Test</button>
+	<center>
+	Your Answer: <input id="your" type="text" name="your" placeholder="Your Answer"><br><br><br>
+	<!--<input name="clock" style="font-size: 24; font-weight: bold; height: 35px; text-align: center; width: 174px;" value="00:01:00.00" /> -->
+	<div id="timer">
+	You have : <input id="minutes" type="text" style="width: 14px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> <b>minutes</b> and <input id="seconds" type="text" style="width: 26px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> <b>seconds</b> to finish this quiz test!.
+</div>
+<script>
+countdown();
+</script>
+</center>
+</section>
+<!-- <script src="utils.js"></script>
+<script src="flip-card.js"></script> -->
+ <script type="text/javascript" src="quizflip.js"></script> 
+<!-- <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+<script type="text/javascript" src="quizbuilder-jquery.js"></script>
+</body> 
+</html>

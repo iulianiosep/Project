@@ -1,0 +1,11 @@
+[{"Q": "1.What is Javascript?", "A": "a) Javascript is a dynamic, function based scripting language.</br> b) Javascript is a machine.</br> c) Javascript is a coockie.</br> d) Javascript is a toy."},
+{"Q": "2.What combination of technologies gives AJAX its name?", "A": "a) ASP and XAML.</br>b) Asynchronous JavaScript and XML.</br> c) Autonomic Computing and DHTML.</br> d) Atlas and XML"},
+{"Q": "3.Which one of these legendary Greek mythical figures or places is the code name for Microsoft's version of AJAX ?", "A": "a) Oracle.</br> b) Atlas.</br> c) Hercules.</br> d) Delphi."},
+{"Q": "4.What has Microsoft renamed its free Web client framework?", "A": "a) MSN AJAX.</br> b) Live ASP.</br> c) ASP.NET AJAX.</br> d) .NET Designer."},
+{"Q": "5.Which Web browser is the least optimized for Microsoft's version of AJAX?", "A": "a) Firefox.</br> b) Opera.</br> c) Safari.</br> d) Internet Explorer."},
+{"Q": "6.Which one of these technologies is NOT used in AJAX?", "A": "a) CSS.</br> b) DOM.</br> c) DHTML.</br> d) Flash."},
+{"Q": "7.Which one of the following functionalities is not (currently) made possible by AJAX?", "A": "a) Drag 'n drop of objects.</br> b) Dropdown menus.</br> c) Symbian browser support.</br> d) Hide toolbars."},
+{"Q": "8.What is the disadvantage of AJAX?", "A": "a) AJAX is not well integrated with any browser.</br> b) AJAX not realize the same thing in the same browser.</br> c) AJAX do asyncron thing with communication with server.</br> d) Something else."},
+{"Q": "9.Is the server or the client in control in AJAX?", "A": "a) Yes, in client-side.</br> b) No, you are not in control with AJAX.</br> c) Yes,in server-side.</br> d) Yes, in mixt-side."},
+{"Q": "10.What technologies are being used in AJAX?", "A": "a) JavaScript.</br> b) XMLHttpRequest.</br> c) Document Object Model (DOM.</br> d) Extensible HTML (XHTML) and Cascading Style Sheets (CSS)."}]
+
