@@ -6,7 +6,7 @@
 			<th><?php echo $this->Form->checkbox('all', array('name' => 'CheckAll',  'id' => 'CheckAll')); ?></th>
 			<th><?php echo $this->Paginator->sort('username', 'Username');?>  </th>
 			<th><?php echo $this->Paginator->sort('email', 'E-Mail');?></th>
-			<th><?php echo $this->Paginator->sort('role','Role');?></th>
+			<th><?php echo $this->Paginator->sort('score','Score');?></th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -19,8 +19,7 @@
 			<td><?php echo $this->Form->checkbox('User.id.'.$user['User']['id']); ?></td>
 			<td><?php echo $this->Html->link( $user['User']['username']  ,   array('action'=>'edit', $user['User']['id']),array('escapet' => false) );?></td>
 			<td style="text-align: center;"><?php echo $user['User']['email']; ?></td>
-			<td style="text-align: center;"><?php echo $user['User']['role']; ?></d>
-			<td style="text-align: center;"><?php echo $user['User']['status']; ?></td>
+			<td style="text-align: center;"><?php echo $user['User']['score']; ?></td>
 			<td >
 			<?php echo $this->Html->link(    "Edit",   array('action'=>'edit', $user['User']['id']) ); ?> | 
 			<?php
